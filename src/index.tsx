@@ -1,17 +1,18 @@
 import * as React from 'react';
-import ReactDOM from 'react-dom';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
+import ReactDOM from 'react-dom/client';
 import App from './App';
-import theme from './theme';
-import ButtonAppBar from "./ButtonAppBar";
+import {BrowserRouter} from "react-router-dom";
+import reportWebVitals from "./reportWebVitals";
 
-ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-    <CssBaseline />
-    <ButtonAppBar/>
-    <App />
-  </ThemeProvider>,
-  document.querySelector('#root'),
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+root.render(
+    <React.StrictMode>
+        <BrowserRouter>
+            <App/>
+        </BrowserRouter>
+    </React.StrictMode>
 );
+
+reportWebVitals();
+
+

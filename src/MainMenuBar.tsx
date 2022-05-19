@@ -11,8 +11,11 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
+import { useNavigate } from 'react-router-dom';
 
-const ButtonAppBar = () => {
+
+const MainMenuBar = () => {
+    const navigate = useNavigate();
     const [auth, setAuth] = React.useState(true);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -26,6 +29,11 @@ const ButtonAppBar = () => {
 
     const handleClose = () => {
         setAnchorEl(null);
+        navigate('/dashboard/messages')
+    };
+    const handleAbout = () => {
+        setAnchorEl(null);
+        navigate('about')
     };
 
     return (
@@ -51,7 +59,6 @@ const ButtonAppBar = () => {
                         aria-label="menu"
                         sx={{ mr: 2 }}
                     >
-                        <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Octopus
@@ -83,7 +90,7 @@ const ButtonAppBar = () => {
                                 open={Boolean(anchorEl)}
                                 onClose={handleClose}
                             >
-                                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                                <MenuItem onClick={handleAbout} >Profile</MenuItem>
                                 <MenuItem onClick={handleClose}>My account</MenuItem>
                             </Menu>
                         </div>
@@ -93,4 +100,4 @@ const ButtonAppBar = () => {
         </Box>
     );
 }
-export default ButtonAppBar;
+export default MainMenuBar;

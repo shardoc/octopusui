@@ -14,6 +14,7 @@ import Menu from '@mui/material/Menu';
 import { useNavigate } from 'react-router-dom';
 
 
+
 const MainMenuBar = () => {
     const navigate = useNavigate();
     const [auth, setAuth] = React.useState(true);
@@ -29,11 +30,18 @@ const MainMenuBar = () => {
 
     const handleClose = () => {
         setAnchorEl(null);
+    };
+
+    const handleDashBoard = () => {
+        setAnchorEl(null);
         navigate('/dashboard/messages')
     };
     const handleAbout = () => {
         setAnchorEl(null);
         navigate('about')
+    };
+    const handleHome= () => {
+        navigate('/')
     };
 
     return (
@@ -52,17 +60,10 @@ const MainMenuBar = () => {
             </FormGroup>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                    >
-                    </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                    <Typography onClick={handleHome} variant="logo" component="div"  >
                         Octopus
                     </Typography>
+                    <Box component="div" sx={{ flexGrow: 1 }} />
                     {auth && (
                         <div>
                             <IconButton
@@ -91,7 +92,7 @@ const MainMenuBar = () => {
                                 onClose={handleClose}
                             >
                                 <MenuItem onClick={handleAbout} >Profile</MenuItem>
-                                <MenuItem onClick={handleClose}>My account</MenuItem>
+                                <MenuItem onClick={handleDashBoard}>My account</MenuItem>
                             </Menu>
                         </div>
                     )}

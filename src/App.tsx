@@ -30,7 +30,7 @@ export default function App() {
                         }
                     />
                     <Route
-                        path="dashboard/*"
+                        path="document"
                         element={
                             <React.Suspense fallback={<>...</>}>
                                 <DocumentPage/>

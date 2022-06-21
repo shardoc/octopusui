@@ -1,14 +1,14 @@
 import * as React from 'react';
-import OctoSearch from "./OctoSearch";
+import DocumentSearch from "../document/DocumentSearch";
 import {Grid} from "@mui/material";
 import CssBaseline from '@mui/material/CssBaseline';
 import {ThemeProvider} from '@mui/material/styles';
-import theme from './theme';
+import theme from '../../theme';
 import MainMenuBar from "./MainMenuBar";
 import {Routes, Route, Outlet, Link} from "react-router-dom";
 
-const DocumentPage = React.lazy(() => import("./module/document/DocumentPage"));
-const ProfilePage = React.lazy(() => import("./module/profile/ProfilePage"));
+const DocumentPage = React.lazy(() => import("../document/DocumentPage"));
+const ProfilePage = React.lazy(() => import("../profile/ProfilePage"));
 
 
 export default function App() {
@@ -56,7 +56,7 @@ function Home() {
         >
 
             <Grid item xs={3}>
-                <OctoSearch/>
+                <DocumentSearch/>
             </Grid>
 
         </Grid>

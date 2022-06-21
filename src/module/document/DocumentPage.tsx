@@ -1,17 +1,20 @@
 import * as React from "react";
 import {useEffect} from "react";
 import DocumentApi from "../../api/DocumentApi";
-import {useLocation, useParams, useSearchParams} from "react-router-dom";
+import useQuery from "../../utils/Hook";
 
-function DocumentPage(props:any)  {
-    const location = useLocation();
-    console.log(location)
-   /* useEffect(() => {
-        DocumentApi.search("")
+function DocumentPage(props: any) {
+    const queryParams = useQuery()
+    useEffect(() => {
+        console.log("Execute request")
+        const qParam = queryParams.get("q");
+        if (!qParam)
+            return
+        DocumentApi.search(qParam)
             .then((res) => {
                 console.log("test")
             })
-    })*/
+    })
 
     return (
         <div>

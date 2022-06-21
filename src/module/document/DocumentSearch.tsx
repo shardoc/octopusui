@@ -5,7 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import {useNavigate} from 'react-router-dom';
 import {useState} from "react";
 
-export default function OctoSearch() {
+export default function DocumentSearch() {
     const navigate = useNavigate();
     const [querySearch, setQuerySearch] = useState<string>("");
     const handleDocumentSearch = () => {

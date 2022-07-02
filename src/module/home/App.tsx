@@ -55,9 +55,7 @@ function Home() {
             style={{minHeight: '70vh'}}
         >
 
-            <Grid item xs={3}>
                 <DocumentSearch/>
-            </Grid>
 
         </Grid>
     );

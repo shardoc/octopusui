@@ -2,6 +2,9 @@ import * as React from "react";
 import {useEffect} from "react";
 import DocumentApi from "../../api/DocumentApi";
 import useQuery from "../../utils/Hook";
+import {Grid} from "@mui/material";
+import DocumentSearch from "./DocumentSearch";
+import DocumentList from "./DocumentList";
 
 function DocumentPage(props: any) {
     const queryParams = useQuery()
@@ -12,14 +15,25 @@ function DocumentPage(props: any) {
             return
         DocumentApi.search(qParam)
             .then((res) => {
-                console.log("test")
-            })
+                console.log("success search request")
+            }).catch(function (error) {
+            // handle error
+            console.log(error);
+        })
     })
 
     return (
-        <div>
-            <h2>DocumentPage</h2>
-        </div>
+        <Grid
+            container
+            direction="column"
+            justifyContent="flex-start"
+            alignItems="flex-start"
+        >
+
+            <DocumentSearch/>
+            <DocumentList/>
+
+        </Grid>
     );
 }
 

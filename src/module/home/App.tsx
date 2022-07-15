@@ -33,10 +33,7 @@ export default function App() {
                     />
                     <Route
                         path="document"
-                        element={
-                            <React.Suspense fallback={<>...</>}>
-                                <DocumentPage/>
-                            </React.Suspense>
+                        element={<Documents/>
                         }
                     />
                     <Route path="*" element={<NoMatch/>}/>
@@ -72,5 +69,14 @@ function NoMatch() {
                 <Link to="/">Go to the home page</Link>
             </p>
         </div>
+    );
+}
+
+function Documents() {
+    return (
+        <React.Suspense fallback={<>...</>}>
+            <DocumentPage/>
+        </React.Suspense>
+
     );
 }

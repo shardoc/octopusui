@@ -6,10 +6,10 @@ import {Grid} from "@mui/material";
 import DocumentSearch from "./DocumentSearch";
 import DocumentList from "./DocumentList";
 
-function DocumentPage(props: any) {
+function DocumentPage() {
     const queryParams = useQuery()
     const qParam : string = queryParams.get("q") ?? "";
-    useEffect(() => {
+    /*useEffect(() => {
         console.log("Execute request")
 
         if (!qParam)
@@ -21,7 +21,7 @@ function DocumentPage(props: any) {
             // handle error
             console.log(error);
         })
-    })
+    })*/
 
     return (
         <Grid

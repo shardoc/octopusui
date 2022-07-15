@@ -2,12 +2,13 @@ import * as React from 'react';
 import {InputBase, Paper, TextField} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from '@mui/icons-material/Search';
-import {useNavigate} from 'react-router-dom';
+import InputProps from "../../utils/InputProps";
+import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 
-export default function DocumentSearch() {
+export default function DocumentSearch(props : InputProps) {
     const navigate = useNavigate();
-    const [querySearch, setQuerySearch] = useState<string>("");
+    const [querySearch, setQuerySearch] = useState<string>(props.value);
     const handleDocumentSearch = () => {
         if (querySearch) {
             navigate(`/document?q=${querySearch}`);

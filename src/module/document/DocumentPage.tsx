@@ -8,9 +8,10 @@ import DocumentList from "./DocumentList";
 
 function DocumentPage(props: any) {
     const queryParams = useQuery()
+    const qParam : string = queryParams.get("q") ?? "";
     useEffect(() => {
         console.log("Execute request")
-        const qParam = queryParams.get("q");
+
         if (!qParam)
             return
         DocumentApi.search(qParam)
@@ -28,11 +29,11 @@ function DocumentPage(props: any) {
             direction="column"
             justifyContent="flex-start"
             alignItems="flex-start"
+            padding={2}
+            spacing={2}
         >
-
-            <DocumentSearch/>
-            <DocumentList/>
-
+            <Grid item xs={4}><DocumentSearch value={qParam}/></Grid>
+            <Grid item xs={12}><DocumentList/></Grid>
         </Grid>
     );
 }

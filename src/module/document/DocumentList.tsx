@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 
 export default function DocumentList() {
     return (
-        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+        <List sx={{ width: '100%', maxWidth: 1024, bgcolor: 'background.paper' }}>
             <ListItem alignItems="flex-start">
                 <ListItemAvatar>
                     <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
@@ -26,7 +26,7 @@ export default function DocumentList() {
                             >
                                 Ali Connors
                             </Typography>
-                            {" — I'll be in your neighborhood doing errands this…"}
+                            {" — I'll be in your neighborhood doing errands this…jhkfhkshfkhskdkfskdhfkhdskhfkhdskhfkhdskhfksdhkhkfhdkshkfhskdhskhskshdh"}
                         </React.Fragment>
                     }
                 />

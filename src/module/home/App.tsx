@@ -5,13 +5,15 @@ import CssBaseline from '@mui/material/CssBaseline';
 import {ThemeProvider} from '@mui/material/styles';
 import theme from '../../theme';
 import MainMenuBar from "./MainMenuBar";
-import {Routes, Route, Outlet, Link} from "react-router-dom";
+import {Routes, Route, Outlet, Link, useNavigate} from "react-router-dom";
+import {useState} from "react";
 
 const DocumentPage = React.lazy(() => import("../document/DocumentPage"));
 const ProfilePage = React.lazy(() => import("../profile/ProfilePage"));
 
 
 export default function App() {
+
     return (
         <ThemeProvider theme={theme}>
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
@@ -45,6 +47,7 @@ export default function App() {
 }
 
 function Home() {
+
     return (
         <Grid
             container
@@ -55,7 +58,7 @@ function Home() {
             style={{minHeight: '70vh'}}
         >
 
-                <DocumentSearch/>
+                <DocumentSearch  value={""}/>
 
         </Grid>
     );

@@ -33,8 +33,7 @@ export default function App() {
                     />
                     <Route
                         path="document"
-                        element={<Documents/>
-                        }
+                        element={<Documents/>}
                     />
                     <Route path="*" element={<NoMatch/>}/>
                 </Route>

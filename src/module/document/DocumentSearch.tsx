@@ -10,8 +10,11 @@ export default function DocumentSearch(props : InputProps) {
     const navigate = useNavigate();
     const [querySearch, setQuerySearch] = useState<string>(props.value);
     const handleDocumentSearch = () => {
-        if (querySearch) {
-            navigate(`/document?q=${querySearch}`);
+        if (!!querySearch ) {
+            navigate({
+                pathname: "/document",
+                search: `q=${querySearch}`
+            });
         }
 
     };

@@ -9,7 +9,7 @@ import DocumentList from "./DocumentList";
 function DocumentPage() {
     const queryParams = useQuery()
     const qParam : string = queryParams.get("q") ?? "";
-    /*useEffect(() => {
+    useEffect(() => {
         console.log("Execute request")
 
         if (!qParam)
@@ -21,7 +21,7 @@ function DocumentPage() {
             // handle error
             console.log(error);
         })
-    })*/
+    })
 
     return (
         <Grid

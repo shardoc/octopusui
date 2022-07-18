@@ -7,8 +7,10 @@ import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 
 export default function DocumentSearch(props : InputProps) {
+
     const navigate = useNavigate();
-    const [querySearch, setQuerySearch] = useState<string>(props.value);
+    const currentQuery = props.value;
+    const [querySearch, setQuerySearch] = useState<string>(currentQuery);
     const handleDocumentSearch = () => {
         if (!!querySearch ) {
             navigate({
@@ -32,7 +34,7 @@ export default function DocumentSearch(props : InputProps) {
                 value={querySearch}
                 onChange={e => setQuerySearch(e.target.value)}
             />
-            <IconButton type="submit" sx={{p: '10px'}} aria-label="search" onClick={handleDocumentSearch}>
+            <IconButton sx={{p: '10px'}} aria-label="search" onClick={handleDocumentSearch}>
                 <SearchIcon/>
             </IconButton>
         </Paper>

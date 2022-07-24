@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {InputBase, Paper, TextField} from "@mui/material";
+import {InputBase, Paper} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from '@mui/icons-material/Search';
 import InputProps from "../../utils/InputProps";
@@ -20,6 +20,15 @@ export default function DocumentSearch(props : InputProps) {
         }
 
     };
+    const onKeyDownHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if(e.key === "Enter"){
+            e.preventDefault()
+            handleDocumentSearch()
+        }
+    }
+    const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setQuerySearch(event.target.value);
+    };
     return (
         <Paper
             elevation={0}
@@ -32,7 +41,8 @@ export default function DocumentSearch(props : InputProps) {
                 placeholder="Search Doc"
                 inputProps={{'aria-label': 'search document'}}
                 value={querySearch}
-                onChange={e => setQuerySearch(e.target.value)}
+                onChange={onChangeHandler}
+                onKeyDown={onKeyDownHandler}
             />
             <IconButton sx={{p: '10px'}} aria-label="search" onClick={handleDocumentSearch}>
                 <SearchIcon/>
